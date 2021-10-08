@@ -19,7 +19,7 @@ lazy val scalatest31x = project
 lazy val scalatest32x = project
   .in(file("scalatest-32x"))
   .settings(
-    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.9"
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.10"
   )
 
 lazy val root = project.aggregate(scalatest30x, scalatest31x, scalatest32x)

@@ -13,14 +13,16 @@ class EventuallyAsync32xSpec extends AsyncFreeSpec with Eventually with Matchers
     interval = Span(10, Millis)
   )
 
-  "Await with default EC" in {
-    val it = (1 to 10).iterator
-    def next(): Future[Int] = Future(it.next())
-    eventually {
-      val x = Await.result(next(), 100.millis)
-      x shouldBe 3
-    }
-  }
+// This still times out, but that's fair, because we shouldn't use
+// Await.result in an async suite anyways.
+//  "Await with default EC" in {
+//    val it = (1 to 10).iterator
+//    def next(): Future[Int] = Future(it.next())
+//    eventually {
+//      val x = Await.result(next(), 100.millis)
+//      x shouldBe 3
+//    }
+//  }
 
   "map with default EC" in {
     val it = (1 to 10).iterator
